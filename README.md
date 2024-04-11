@@ -10,6 +10,8 @@ poetry install
 
 AsciiCamera is a Python tool that converts webcam feed into real-time ASCII or Emoji characters. It uses OpenCV, Curses, and Python's string and emoji libraries.
 
+*Note: I have tested this on MacOS. Because it uses Curses library, it is possible that other operating systems require some changes to work.*
+
 ## How to Run
 
 Ensure you have Python 3.6 or above and Poetry installed.
