@@ -53,13 +53,13 @@ class AsciiCamera:
     def _get_closest_character(self, intensity: Union[float, np.ndarray], map: Union[List[Tuple[float, str]], List[Tuple[np.ndarray, str]]]) -> str:
         if self.mode == 'emoji':
             return self._get_closest_character_rgb(intensity, map)
-        else:
+        elif self.mode == 'ascii':
             return self._get_closest_character_bw(intensity, map)
     
     def _get_closest_character_bw(self, intensity: float, map: List[Tuple[float, str]]) -> str:
         closest = min(map, key=lambda x:abs(x[0]-intensity))[1]
 
-        return closest
+        return closest * 2
 
     def _get_closest_character_rgb(self, intensity: np.ndarray, map: List[Tuple[np.ndarray, str]]) -> str:
         closest = min(map, key=lambda x:np.linalg.norm(x[0]-intensity))[1]
@@ -71,7 +71,7 @@ class AsciiCamera:
         for row in img:
             line = ""
             for pixel in row:
-                line += self._get_closest_character(pixel, vocab)
+                line += self._get_closest_character(np.mean(pixel), vocab)
             lines += [line]
         
         return lines
@@ -117,7 +117,7 @@ class AsciiCamera:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Convert webcam feed to ASCII or Emoji.')
-    parser.add_argument('--type', type=str, choices=['ascii', 'emoji'], default='emoji',
+    parser.add_argument('--type', type=str, choices=['ascii', 'emoji'], default='ascii',
                         help='Choose to convert video feed to ascii or emoji.')
     parser.add_argument('--width', type=int, default=75,
                         help='Width of the output. Must be within the size of the command line window running the script.')
