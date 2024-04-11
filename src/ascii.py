@@ -120,8 +120,8 @@ if __name__ == "__main__":
     parser.add_argument('--type', type=str, choices=['ascii', 'emoji'], default='emoji',
                         help='Choose to convert video feed to ascii or emoji.')
     parser.add_argument('--width', type=int, default=75,
-                        help='Width of the output.')
+                        help='Width of the output. Must be within the size of the command line window running the script.')
     parser.add_argument('--height', type=int, default=50,
-                        help='Height of the output.')
+                        help='Height of the output. Must be within the size of the command line window running the script.')
     args = parser.parse_args()
     AsciiCamera(args.type, args.width, args.height).run()
