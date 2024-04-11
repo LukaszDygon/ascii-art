@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ascii-art"
+version = "0.1.0"
+description = ""
+authors = ["lukaszdygon <ldygon94@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+opencv-python = "^4.9.0.80"
+emoji = "^2.11.0"
+
+[tool.poetry.group.dev.dependencies]
+matplotlib = "^3.8.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
