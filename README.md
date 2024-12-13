@@ -21,7 +21,7 @@ poetry install
 Run AsciiCamera with:
 
 ```bash
-poetry run python main.py --type [ascii/emoji] --width [output width] --height [output height]
+poetry run python src/main.py --type [ascii/emoji] --width [output width] --height [output height]
 ```
 
 Replace `[ascii/emoji]` with `ascii` or `emoji`, and `[output width]` and `[output height]` with desired dimensions. Defaults are `ascii`, `75`, and `50` respectively.
@@ -29,7 +29,7 @@ Replace `[ascii/emoji]` with `ascii` or `emoji`, and `[output width]` and `[outp
 Example run:
 
 ```bash
-poetry run python main.py --type ascii --width 100 --height 75
+poetry run python src/main.py --type ascii --width 40 --height 30
 ```
 
 _Note: For the script to run successfully, your command line window needs to be at least the width and height specified_
