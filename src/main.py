@@ -98,7 +98,13 @@ class AsciiCamera:
         screen = curses.initscr()
         curses.cbreak()
         curses.noecho()
+        screen.nodelay(1)  # Make getch() non-blocking
+        
         while True:
+            # Check for any key press
+            if screen.getch() != -1:  # -1 means no key was pressed
+                break
+                
             ret, img = cam.read()
             if not ret:
                 print("failed to grab frame")
